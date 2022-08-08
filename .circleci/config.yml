@@ -21,15 +21,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello,"
+          name: "Say world"
+          command: "echo world,"
 
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
       - print_hello
       - print_world: 
           requires:
