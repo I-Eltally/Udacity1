@@ -57,7 +57,7 @@ jobs:
       - run:
           command: echo "text to output here Islam Eltally" > ~/Oput.txt
       - save_cache:
-          key: v1-my-project-{{ checksum "Oput.txt" }}
+          key: v1-my-project
           paths:
             - ~/Oput.txt
   cache_print_output_file:
@@ -67,8 +67,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-my-project-{{ checksum "Oput.txt" }}
-            - v1-my-project-
+            - v1-my-project
       - run:
           command: cat ~/Oput.txt  
 
