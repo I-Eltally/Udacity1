@@ -93,6 +93,16 @@ jobs:
       - checkout
       - print_pipeline_id  
 
+  On-Fail-Job-Test:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run:
+          command: cat ~/OutPut.txt
+      - run:
+          command: echo "Error handleing for on-fail job"
+          when: on_fail
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   My-hello-workflow:
@@ -111,4 +121,5 @@ workflows:
           requires:
             - cache_save_hello_world_output
       - Reusable_Job_Code
+      - On-Fail-Job-Test
 
