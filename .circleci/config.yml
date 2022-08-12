@@ -36,20 +36,20 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run:
-          command: echo "text to output here" > /tmp/output.txt
+          command: echo "text to output here" > /workspace/output.txt
       - persist_to_workspace:
-          root: /tmp
+          root: /workspace
           paths:
-            - /tmp
-            - /tmp/output.txt
+            - /workspace
+            - /workspace/output.txt
   print_output_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-              at: /tmp
+              at: /workspace
       - run:
-          command: cat /tmp/output.txt
+          command: cat /workspace/output.txt
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
