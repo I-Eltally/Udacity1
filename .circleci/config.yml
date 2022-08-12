@@ -36,12 +36,12 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run:
-          command: echo "text to output here" > /tmp/workspace/output.txt
+          command: echo "text to output here Islam Eltally" > /tmp/workspace/Output.txt
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
             - /tmp/workspace
-            - /tmp/workspace/output.txt
+            - /tmp/workspace/Output.txt
   print_output_file:
     docker:
       - image: circleci/node:13.8.0
@@ -49,7 +49,7 @@ jobs:
       - attach_workspace:
               at: /tmp/workspace
       - run:
-          command: cat /tmp/workspace/output.txt
+          command: cat /tmp/workspace/Output.txt
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
