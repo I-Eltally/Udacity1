@@ -83,6 +83,7 @@ workflows:
       - print_output_file:
           requires:
             - save_hello_world_output
+      - cache_save_hello_world_output
       - cache_print_output_file:
           requires:
             - cache_save_hello_world_output
