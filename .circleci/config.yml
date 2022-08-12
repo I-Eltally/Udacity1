@@ -54,7 +54,10 @@ jobs:
 workflows:
   My-hello-workflow:
     jobs:
-      - save_hello_world_output
-      - print_output_file:
+      - print_hello
+      - print_world: 
           requires:
-            - save_hello_world_output
+            - print_hello
+      - print_Myname
+      - save_hello_world_output
+      - print_output_file
